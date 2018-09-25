@@ -29,7 +29,7 @@ class LoginScreen extends React.Component {
                     this.setState({username: event.target.value})
                 }} />
                 <input placeholder="Insert Password" 
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={event => {
                     this.setState({password: event.target.value})
