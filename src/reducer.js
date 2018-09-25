@@ -1,4 +1,6 @@
-let reducers = {};
+let reducers = {
+    'USER_LOGIN': userLogin
+};
 
 let reducer = (oldState, action) => {
     let doer = reducers[action.type];
