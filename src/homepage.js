@@ -1,7 +1,7 @@
 import React from 'react';
 import AppHeader from './app-header.js';
-import { NavLink } from 'react-router-dom'
-;
+import { NavLink } from 'react-router-dom';
+
 let Homepage = () => 
     <div>
         <div>
