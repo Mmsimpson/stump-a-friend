@@ -4,6 +4,7 @@ import LoginScreen from './login-screen';
 import SignupScreen from './signup-screen';
 import NotFound from './not-found';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import UserDashboard from './user-dashboard/user-dashboard';
 
 let Router = () =>
     <HashRouter>
@@ -12,6 +13,7 @@ let Router = () =>
                 <Route exact path="/" component={Homepage} />
                 <Route exact path="/login" component={LoginScreen} />
                 <Route exact path="/signup" component={SignupScreen} />
+                <Route exact path="/users/:id" component={UserDashboard} />
                 <Route path="*" component={NotFound} />
             </Switch>
         </div>
