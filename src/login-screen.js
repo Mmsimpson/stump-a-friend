@@ -17,7 +17,7 @@ class LoginScreen extends React.Component {
             <form 
             onSubmit={event => {
                 event.preventDefault();
-                this.props.dispach({
+                this.props.dispatch({
                     type: 'USER_LOGIN',
                     userLogin: this.state
                 })
