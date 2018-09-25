@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import AppHeader from '../app-header';
 import './user-dashboard.css';
 
-let UserDashboard = (props) => (
+let UserDashboardScreen = (props) => (
     <div>
         <AppHeader />
         <div className='user-dashboard'>
@@ -15,4 +15,4 @@ let UserDashboard = (props) => (
 )
 
 export default connect(state => 
-    ({username: state.currentUser.userName}))(UserDashboard);
+    ({username: state.currentUser.userName}))(UserDashboardScreen);
