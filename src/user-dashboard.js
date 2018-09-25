@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AppHeader from '../app-header';
-import './user-dashboard.css';
+import AppHeader from './app-header';
+import './stylesheets/user-dashboard.css';
 
 let UserDashboardScreen = (props) => (
     <div>

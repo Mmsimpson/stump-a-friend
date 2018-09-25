@@ -4,7 +4,7 @@ import LoginScreen from './login-screen';
 import SignupScreen from './signup-screen';
 import NotFound from './not-found';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import UserDashboardScreen from './user-dashboard/user-dashboard';
+import UserDashboardScreen from './user-dashboard';
 
 let Router = () =>
     <HashRouter>
