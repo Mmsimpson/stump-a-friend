@@ -8,12 +8,6 @@ let usernameLogin = (username, password) => {
     AND password = '` + password + `';`)
 }
 
-// let listAllQuizzes = (sent_to) => {
-//     return db.query(`select usr.id, qzs.created_by, qts.question, qts.quiz
-//     FROM quizzes qzs
-//     WHERE sent_to =  '` + sent_to + `';`)
-// }
-
 exports.usernameLogin = usernameLogin;
-// exports.listAllQuizzes = listAllQuizzes;
+
 
