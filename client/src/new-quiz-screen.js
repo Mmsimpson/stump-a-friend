@@ -1,42 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppHeader from './app-header';
+import QuizNameForm from './quiz-name-form';
+import NewQuestionForm from './new-question-form';
+import { connect } from 'react-redux';
+import QuestionListing from './question-listing';
 
-class NewQuizFormContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            questionName: '',
-            question: '',
-            answer: '',
-            questions: []
-        };
-    };
-    render() {
-        let updateQuizTitle = (value) => {
-            this.setState({
-                questionName: value
-            });
-        };
-        return (
+
+let NewQuizScreen = (props) => {
+    props.questions.map(question => {
+        console.log(question);
+        console.log(`Question: ${question.question}`);
+        console.log(`Answer: ${question.answer}`);
+    });
+    return <div>
+        <AppHeader/>
+        <form>
+            <QuizNameForm/>
+            
+            <ul>
+                {props.questions.map(question => 
+                    <QuestionListing question={question} key={question.id}/>
+                )}
+            </ul>
+            <NewQuestionForm />
             <div>
-                <AppHeader />
-                <form>
-                    <p>Quiz Name</p>
-                    <input
-                        type='text'
-                        onChange={ (event) => {
-                            event.preventDefault();
-                            updateQuizTitle(event.target.value);
-                        }}
-                    />
-                    <div>
-                        <button>Cancel</button>
-                        <button>Submit</button>
-                    </div>
-                </form>
+                <button>Cancel</button>
+                <button>Submit</button>
             </div>
-        )
-    }
-}
+        </form>
+        
+    </div>
+};
 
-export default NewQuizFormContainer;
+export default connect(
+    state => ({questions: state.newQuiz.questions})
+)(NewQuizScreen);
