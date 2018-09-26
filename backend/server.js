@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const ex = express();
+const JwtPassword = 'jsonwebtokenPassword'
 const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 const cors = require('cors');
@@ -11,27 +12,65 @@ ex.use(jsonParser);
 let newUser = (req, res) => {
     console.log(req.body)
     dbq.createUser(req.body.username, req.body.password, req.body.email)  
-        // .then(data => {
-        //     let token = jwt.sign({id: data.id},
-        //         JwtPassword,
-        //         {expiresIn: '7d'});
-        //     res.send({ token });
-        //})
+        .then(data => {
+            res.send({ data });
+        })
         .catch(err => {
             console.log(err);
             res.send({ error: err });
         });
     };
-        
-let userLogin = (req, res) => {
-    dbq.usernameLogin(req.body.username, req.body.password)
+let validateToken = (req, res) => {
+    let responseObject = {response: null,
+                            payload: null}
+    let token = req.body.webtoken
+    let isValid;
+    let payload;
+    try {
+            let decoded = jwt.verify(token, priv.signature, {"alg": "HS256", "typ": "JWT"});
+            isValid = true;
+            req.user = decoded.payload;
+            responseObject.payload = payload;
+    } catch (err) {
+            isValid = false;
+    }
+        //creates a new property for the request object, called user
+    if (isValid) {
+        responseObject.response = "Logged in";
+        res.send(responseObject);
+    } else {
+        responseObject.response = "Invalid login";
+        res.send(responseObject);
+    }
+}
+let createToken = (req, res) => {
+    let credentials = req.body;
+    let password = credentials.password;
+    let id = credentials.id;
+    let username = credentials.username;
+    console.log(credentials);    
+
+    dbq.usernameLogin(username, password, id)
         .then(data => {
-            res.send(data);
-
+            console.log(data)
+            if (data.password === password && data.username === username) {
+                console.log("im here");
+                let token = jwt.sign(
+                    {name: data.username,
+                    id: data.id},
+                    JwtPassword,
+                    {expiresIn: '7d'})
+                    console.log(token);
+                    res.end(JSON.stringify(token));
+            } else {
+                res.end("Sorry, invalid login");
+            }
         }).catch(error=> res.send({response: "bad login"}));
-};
+    };
 
-ex.post('/login', userLogin);
+      
+ex.post('/checktoken', validateToken);
+ex.post('/login', createToken);
 ex.post('/signup', newUser);
 
-ex.listen(3000);
+ex.listen(5000);

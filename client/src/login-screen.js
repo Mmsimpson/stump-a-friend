@@ -12,15 +12,44 @@ class LoginScreen extends React.Component {
     }
 
     render() {
+
+        let myStorage = window.localStorage;
+
+        let checkLogin = () => {
+            fetch('http://localhost:5000/checktoken', {
+                method: 'POST',
+                body: JSON.stringify(myStorage),
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then(data => {
+                return data.json()})     
+            }
+        
+        checkLogin();
+
+        let loginFetch = () => {
+            fetch('http://localhost:5000/login',{
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers:{
+                "Content-Type": "application/json"
+            }})
+            .then(responseObject => {
+                return    responseObject.json()
+                
+            })
+            .then(data => {
+                myStorage.setItem('webtoken', data);
+                
+            })
+        }
+
         return <div>
             <h1>Please Login</h1>
             <form 
             onSubmit={event => {
                 event.preventDefault();
-                this.props.dispatch({
-                    type: 'USER_LOGIN',
-                    userLogin: this.state
-                })
+                loginFetch()
             }}>
                 <input placeholder="Insert Username" 
                 type="text"
@@ -41,4 +70,8 @@ class LoginScreen extends React.Component {
         </div>
     }
 }
-export default LoginScreen;
+
+
+
+
+export default connect(state => state)(LoginScreen)

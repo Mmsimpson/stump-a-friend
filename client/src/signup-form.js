@@ -17,7 +17,7 @@ class SignupForm extends React.Component {
         className='signup-form'
         onSubmit={ (event) => {
             event.preventDefault();
-            createNewUser();
+            // createNewUser();
             }
         }>
             <input
@@ -55,6 +55,4 @@ class SignupForm extends React.Component {
     }
 };
 
-export default connect(
-    (state) => 
-    ({users: this.state}) ((fetchUserSignUP))
+export default SignupForm;
