@@ -32,6 +32,6 @@ let userLogin = (req, res) => {
 };
 
 ex.post('/login', userLogin);
-ex.post('/register', newUser);
+ex.post('/signup', newUser);
 
 ex.listen(3000);
