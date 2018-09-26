@@ -1,7 +1,7 @@
 import React from 'react';
 import SignupForm from './signup-form';
 
-let fetchUserSignUP = (props) => {
+let fetchUserSignUp = (props) => {
     // componentDidMount() {
     //     fetch('http://localhost:3000/#/signup')
     //         .then(res => res.json())
@@ -19,5 +19,5 @@ let fetchUserSignUP = (props) => {
     
 };
   
-  export default fetchUserSignUP;
+  export default fetchUserSignUp;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import fetchUserSignUP from './signupfetch';
+import fetchUserSignUp from './signupfetch';
 
 class SignupForm extends React.Component {
     constructor(props) {
