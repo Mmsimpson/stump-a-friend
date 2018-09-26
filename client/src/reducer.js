@@ -22,6 +22,7 @@ let reducers = {
     'UPDATE_QUIZ_NAME': updateNewQuizName,
     'ADD_QUESTION_TO_QUIZ': addQuestionToQuiz,
     'UPDATE_NEW_QUIZ_QUESTIONS': updateNewQuizQuestions
+
 };
 
 let reducer = (oldState, action) => {
