@@ -12,7 +12,10 @@ let UserDashboardScreen = (props) => (
             <Link to='/quizzes/new'>
                 <div className='dashboard-link'>Create Quiz</div>
             </Link>
-            <div className='dashboard-link'>My Quizzes</div>
+            <Link to='/quizzes/created'>
+                <div className='dashboard-link'>Quizzes Created</div>
+            </Link>
+                <div className='dashboard-link'>Quizzes Received</div>
         </div>
     </div>
 )
