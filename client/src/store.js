@@ -3,6 +3,10 @@ import reducer from './reducer';
 
 let initialState = {
     currentUser: {id: 1, userName: 'testUser'},
+    newQuiz: {
+        name: '',
+        questions: []
+    }
 };
 
 let store = createStore(
