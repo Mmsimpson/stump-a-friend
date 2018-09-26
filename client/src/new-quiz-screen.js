@@ -6,13 +6,8 @@ import { connect } from 'react-redux';
 import QuestionListing from './question-listing';
 
 
-let NewQuizScreen = (props) => {
-    props.questions.map(question => {
-        console.log(question);
-        console.log(`Question: ${question.question}`);
-        console.log(`Answer: ${question.answer}`);
-    });
-    return <div>
+let NewQuizScreen = (props) => 
+    <div>
         <AppHeader/>
         <form>
             <QuizNameForm/>
@@ -30,7 +25,6 @@ let NewQuizScreen = (props) => {
         </form>
         
     </div>
-};
 
 export default connect(
     state => ({questions: state.newQuiz.questions})
