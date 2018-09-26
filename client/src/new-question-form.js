@@ -43,12 +43,10 @@ class NewQuestionForm extends React.Component {
                         actionType='ADD_QUESTION_TO_QUIZ'
                         clearState={clearState}
                     />
-                    <button>Remove</button>
                 </div>
             </div>
         )
-    }
-
-}
+    };
+};
 
 export default NewQuestionForm;

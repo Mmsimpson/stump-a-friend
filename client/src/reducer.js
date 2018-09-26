@@ -13,10 +13,15 @@ let addQuestionToQuiz = (oldState, action) => {
     return {...oldState, newQuiz: newQuiz};
 };
 
+let updateNewQuizQuestions = (oldState, action) => {
+    let newQuestionsList = {...oldState.newQuiz, questions: action.questions};
+    return {...oldState, newQuiz: newQuestionsList};
+};
 
 let reducers = {
     'UPDATE_QUIZ_NAME': updateNewQuizName,
-    'ADD_QUESTION_TO_QUIZ': addQuestionToQuiz
+    'ADD_QUESTION_TO_QUIZ': addQuestionToQuiz,
+    'UPDATE_NEW_QUIZ_QUESTIONS': updateNewQuizQuestions
 };
 
 let reducer = (oldState, action) => {
