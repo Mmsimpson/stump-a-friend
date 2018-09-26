@@ -13,6 +13,7 @@ let addQuestionToQuiz = (oldState, action) => {
     return {...oldState, newQuiz: newQuiz};
 };
 
+
 let reducers = {
     'UPDATE_QUIZ_NAME': updateNewQuizName,
     'ADD_QUESTION_TO_QUIZ': addQuestionToQuiz

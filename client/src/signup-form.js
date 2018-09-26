@@ -1,4 +1,5 @@
 import React from 'react';
+import fetchUserSignUP from './signupfetch';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -11,21 +12,7 @@ class SignupForm extends React.Component {
     }
 
     render() {
-        let createNewUser = () => {
-            fetch('/signup', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username: this.state.username,
-                    password: this.state.password,
-                    email: this.state.email
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            })
-        }
-
+        
         return <form 
         className='signup-form'
         onSubmit={ (event) => {
@@ -68,4 +55,6 @@ class SignupForm extends React.Component {
     }
 };
 
-export default SignupForm;
+export default connect(
+    (state) => 
+    ({users: this.state}) ((fetchUserSignUP))
