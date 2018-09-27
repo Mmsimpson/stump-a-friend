@@ -15,7 +15,7 @@ let Router = () =>
                 <Route exact path="/" component={Homepage} />
                 <Route exact path="/login" component={LoginScreen} />
                 <Route exact path="/signup" component={SignupScreen} />
-                <Route exact path="/users/:id" component={UserDashboardScreen} />
+                <Route exact path="/user/:id" component={UserDashboardScreen} />
                 <Route exact path="/quizzes/new" component={NewQuizFormContainer} />
                 <Route exact path="/quizzes/created" component={MyQuizzesCreatedScreen} />
                 <Route path="*" component={NotFound} />

@@ -1,0 +1,9 @@
+.appHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.homeForm {
+    display: flex;
+    justify-content: center;
+}
