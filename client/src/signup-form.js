@@ -13,11 +13,26 @@ class SignupForm extends React.Component {
 
     render() {
         
+        let userSignUp = () => {
+            fetch('http://localhost:5000/signup', {
+            method: 'POST', 
+            body: JSON.stringify(this.state),
+            headers: {'Content-Type': 'application/JSON'
+            }})
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                this.props.history.push('/login')
+            })
+            
+        }
+
         return <form 
         className='signup-form'
         onSubmit={ (event) => {
             event.preventDefault();
-            // createNewUser();
+            userSignUp()
             }
         }>
             <input
