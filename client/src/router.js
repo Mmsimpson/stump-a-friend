@@ -17,7 +17,7 @@ let Router = () =>
                 <Route exact path="/signup" component={SignupScreen} />
                 <Route exact path="/users/:id" component={UserDashboardScreen} />
                 <Route exact path="/quizzes/new" component={NewQuizFormContainer} />
-                <Route exact path="/quizzes/created" component={MyQuizzesCreatedScreen} />
+                <Route exact path="/users/:id/quizzes/created" component={MyQuizzesCreatedScreen} />
                 <Route path="*" component={NotFound} />
             </Switch>
         </div>

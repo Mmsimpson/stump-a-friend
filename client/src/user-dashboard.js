@@ -8,11 +8,11 @@ let UserDashboardScreen = (props) => (
     <div>
         <AppHeader />
         <div className='user-dashboard'>
-            <h3>Greetings: {props.username}</h3>
+            <h3>Greetings: {props.user.userName}</h3>
             <Link to='/quizzes/new'>
                 <div className='dashboard-link'>Create Quiz</div>
             </Link>
-            <Link to='/quizzes/created'>
+            <Link to={`/users/${props.user.id}/quizzes/created`}>
                 <div className='dashboard-link'>Quizzes Created</div>
             </Link>
                 <div className='dashboard-link'>Quizzes Received</div>
@@ -21,4 +21,4 @@ let UserDashboardScreen = (props) => (
 )
 
 export default connect(state => 
-    ({username: state.currentUser.userName}))(UserDashboardScreen);
+    ({ user: state.currentUser }))(UserDashboardScreen);
