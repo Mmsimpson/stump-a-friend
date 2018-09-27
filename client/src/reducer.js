@@ -30,12 +30,17 @@ let updateQuizRecipient = (oldState, action) => {
     return {...oldState, newQuiz: newQuizRecipient };
 };
 
+let loadQuizzesCreated = (oldState, action) => {
+    return {...oldState, quizzesCreated: action.quizzes}
+};
+
 let reducers = {
     'UPDATE_QUIZ_NAME': updateNewQuizName,
     'ADD_QUESTION_TO_QUIZ': addQuestionToQuiz,
     'UPDATE_NEW_QUIZ_QUESTIONS': updateNewQuizQuestions,
     'GET_USERS': getUsers,
-    'UPDATE_QUIZ_RECIPIENT': updateQuizRecipient
+    'UPDATE_QUIZ_RECIPIENT': updateQuizRecipient,
+    'LOAD_QUIZZES_CREATED': loadQuizzesCreated,
 
 };
 

@@ -76,10 +76,20 @@ let getUsers = (req, res) => {
         res.send({error: err});
     })
 };
+
+let getQuizzesCreated = (req, res) => {
+    dbq.getQuizzesCreated(req.params.id)
+    .then(data => {
+        res.send({ data });
+    }).catch(err => {
+        res.send({ error: err });
+    })
+};
       
 ex.post('/checktoken', validateToken);
 ex.post('/login', createToken);
 ex.post('/signup', newUser);
 ex.get('/users', getUsers);
+ex.get('/users/:id/quizzes/created', getQuizzesCreated);
 
 ex.listen(5000);

@@ -19,6 +19,11 @@ let getUsers = () => {
     return db.query('SELECT id, username FROM users');
 };
 
+let getQuizzesCreated = (userId) => {
+    return db.query(`SELECT * FROM quizzes WHERE quizzes.created_by = ${userId};`);
+};
+
 exports.usernameLogin = usernameLogin;
 exports.createUser = createUser;
 exports.getUsers = getUsers;
+exports.getQuizzesCreated = getQuizzesCreated;
