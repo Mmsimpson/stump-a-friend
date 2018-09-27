@@ -1,0 +1,19 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.loginPage h1 {
+    color: lightcoral;
+    align-self: center;
+    border: 1px solid black;
+    border-radius: 1em;
+    
+}
+
+.loginPage form {
+    align-self: center;
+    flex-direction: row;
+}
+

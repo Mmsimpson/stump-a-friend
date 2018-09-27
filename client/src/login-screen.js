@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './stylesheets/loginScr.css';
+
 
 class LoginScreen extends React.Component {
     constructor(props){
@@ -38,16 +40,17 @@ class LoginScreen extends React.Component {
                 
             })
             .then(data => {
+                console.log(data)
                 myStorage.setItem('webtoken', data.token);
-                this.props.history.push('user/id');
+                this.props.history.push(`/user/${data.user.id}`);
                 console.log(this.state);
             })
 
         }
 
-        return <div>
+        return <div className="loginPage">
             <h1>Please Login</h1>
-            <form 
+            <form className="loginForm"
             onSubmit={event => {
                 event.preventDefault();
                 loginFetch()
