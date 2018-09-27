@@ -61,9 +61,9 @@ let createToken = (req, res) => {
                     JwtPassword,
                     {expiresIn: '7d'})
                     console.log(token);
-                    res.end(JSON.stringify(token));
+                    res.send({token: token, user:data});
             } else {
-                res.end("Sorry, invalid login");
+                res.send("Sorry, invalid login");
             }
         }).catch(error=> res.send({response: "bad login"}));
     };
