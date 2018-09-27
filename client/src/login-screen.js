@@ -31,17 +31,18 @@ class LoginScreen extends React.Component {
             fetch('http://localhost:5000/login',{
             method: 'POST',
             body: JSON.stringify(this.state),
-            headers:{
-                "Content-Type": "application/json"
+            headers:{"Content-Type": "application/json"
             }})
             .then(responseObject => {
                 return    responseObject.json()
                 
             })
             .then(data => {
-                myStorage.setItem('webtoken', data);
+                myStorage.setItem('webtoken', data.token);
+                this.props.history.push('user/id');
                 console.log(this.state);
             })
+
         }
 
         return <div>
@@ -63,8 +64,9 @@ class LoginScreen extends React.Component {
                 onChange={event => {
                     this.setState({password: event.target.value})
                 }} />
-                <button type="submit"> 
-                Login
+
+                <button type="submit" to="/users/1"> 
+                Go to Dashboard
                 </button>
             </form>
         </div>
