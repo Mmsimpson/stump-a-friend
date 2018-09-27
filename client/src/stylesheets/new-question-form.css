@@ -1,0 +1,24 @@
+.new-question {
+    border: 1px solid black;
+    margin: 1em;
+}
+
+.question-block {
+    display: flex;
+}
+
+.question-input {
+    margin: 1em;
+}
+
+.question-input p {
+    margin: 0;
+}
+
+.question-display {
+    margin: 1em;
+}
+
+.button {
+    margin: 1em;
+}

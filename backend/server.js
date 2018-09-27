@@ -68,9 +68,18 @@ let createToken = (req, res) => {
         }).catch(error=> res.send({response: "bad login"}));
     };
 
+let getUsers = (req, res) => {
+    dbq.getUsers()
+    .then(data => {
+        res.send({ data });
+    }).catch(err=> {
+        res.send({error: err});
+    })
+};
       
 ex.post('/checktoken', validateToken);
 ex.post('/login', createToken);
 ex.post('/signup', newUser);
+ex.get('/users', getUsers);
 
 ex.listen(5000);

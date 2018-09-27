@@ -4,13 +4,17 @@ import generateId from './generate-id';
 
 let QuizQuestionButton = (props) => 
     <button
+        className='button'
         onClick={ event => {
             event.preventDefault();
             props.dispatch({
                 type: props.actionType,
                 id: generateId(),
                 question: props.question,
-                answer: props.answer
+                answer: props.answer,
+                incorrect1: props.incorrect1,
+                incorrect2: props.incorrect2,
+                incorrect3: props.incorrect3
             });
             props.clearState();
         }}

@@ -40,7 +40,7 @@ class LoginScreen extends React.Component {
             })
             .then(data => {
                 myStorage.setItem('webtoken', data);
-                
+                console.log(this.state);
             })
         }
 

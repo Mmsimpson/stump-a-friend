@@ -1,7 +1,8 @@
 import React from 'react';
+import './stylesheets/new-question-form.css';
 
 let NewQuestionInput = (props) => 
-    <div>
+    <div className='question-input'>
         <p>{props.label}</p>
         <input 
             type='text'
