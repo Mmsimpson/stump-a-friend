@@ -1,5 +1,6 @@
 const pg = require('pg-promise')();
-const db = pg('postgres://marshallsimpson@localhost:5432/stump'); 
+const postGres = require('./variables.js');
+const db = pg(postGres.PG_LINK); 
 
 let usernameLogin = (username, password) => {
     return db.one(`select username, password, id
@@ -14,6 +15,10 @@ let createUser = (username, password, email) => {
     RETURNING *;`);  
 } 
 
+let getUsers = () => {
+    return db.query('SELECT id, username FROM users');
+};
+
 exports.usernameLogin = usernameLogin;
 exports.createUser = createUser;
-
+exports.getUsers = getUsers;

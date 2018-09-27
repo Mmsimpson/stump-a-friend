@@ -4,13 +4,18 @@ import QuizNameForm from './quiz-name-form';
 import NewQuestionForm from './new-question-form';
 import { connect } from 'react-redux';
 import QuestionListing from './question-listing';
+import AllUsers from './all-users';
 
 
 let NewQuizScreen = (props) => 
     <div>
         <AppHeader/>
-        <form>
+        <form onSubmit={event => {
+            event.preventDefault();
+            //do something
+        }}>
             <QuizNameForm/>
+            <AllUsers />
             
             <ul>
                 {props.questions.map(question => 
@@ -23,7 +28,6 @@ let NewQuizScreen = (props) =>
                 <button>Submit</button>
             </div>
         </form>
-        
     </div>
 
 export default connect(

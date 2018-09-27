@@ -3,9 +3,11 @@ import reducer from './reducer';
 
 let initialState = {
     currentUser: {id: 1, userName: 'testUser'},
+    users: [],
     newQuiz: {
         name: '',
-        questions: []
+        questions: [],
+        recipient: ''
     },
     myQuizzes: {
         created: [
