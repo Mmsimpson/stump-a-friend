@@ -11,6 +11,7 @@ let initialState = {
         recipient: ''
     },
     quizzesCreated: [],
+    quizzesRecieved: []
 };
 
 let store = createStore(

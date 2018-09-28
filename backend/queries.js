@@ -37,6 +37,11 @@ let addNewQuestion = (question, quizId) => {
             '${question.incorrect1}', '${question.incorrect2}', '${question.incorrect3}');`);
 };
 
+let getRecievedQuizzes = (id) => {
+    return db.query(`SELECT * FROM quizzes WHERE quizzes.sent_to = '${id}'`);
+}
+
+exports.getRecievedQuizzes = getRecievedQuizzes;
 exports.usernameLogin = usernameLogin;
 exports.createUser = createUser;
 exports.getUsers = getUsers;

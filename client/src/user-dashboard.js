@@ -15,7 +15,9 @@ let UserDashboardScreen = (props) => (
             <Link to={`/users/${props.user.id}/quizzes/created`}>
                 <div className='dashboard-link'>Quizzes Created</div>
             </Link>
+            <Link to={`/users/${props.user.id}/quizzes/recieved`}>
                 <div className='dashboard-link'>Quizzes Received</div>
+            </Link>
         </div>
     </div>
 )
