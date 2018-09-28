@@ -1,12 +1,12 @@
 CREATE TABLE users (
-    id serial primary key,
-    username character varying (200),
-    password character varying (200),
-    email character varying (200)
+    id serial PRIMARY KEY,
+    username character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    password character varying(255) NOT NULL
 );
 
 CREATE TABLE quizzes (
-    id serial PRIMARY KEY,
+    id character varying(255) PRIMARY KEY,
     created_by INTEGER REFERENCES users(id),
     sent_to INTEGER REFERENCES users(id),
     name character varying(255) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE quizzes (
 
 CREATE TABLE questions (
     id character varying(255) PRIMARY KEY,
-    quiz_id INTEGER REFERENCES quizzes(id),
+    quiz_id character varying(255) REFERENCES quizzes(id),
     question character varying(255) NOT NULL,
     correct_answer character varying(255) NOT NULL,
     player_answer character varying(255),

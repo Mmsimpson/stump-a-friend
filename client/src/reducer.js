@@ -34,6 +34,9 @@ let loadQuizzesCreated = (oldState, action) => {
     return {...oldState, quizzesCreated: action.quizzes}
 };
 
+let clearNewQuizData = (oldState, action) => ({...oldState, newQuiz: action.newQuiz});
+
+
 let reducers = {
     'UPDATE_QUIZ_NAME': updateNewQuizName,
     'ADD_QUESTION_TO_QUIZ': addQuestionToQuiz,
@@ -41,13 +44,12 @@ let reducers = {
     'GET_USERS': getUsers,
     'UPDATE_QUIZ_RECIPIENT': updateQuizRecipient,
     'LOAD_QUIZZES_CREATED': loadQuizzesCreated,
-
+    'CLEAR_NEW_QUIZ_DATA': clearNewQuizData
 };
 
 let reducer = (oldState, action) => {
     let doer = reducers[action.type];
     return doer ? doer(oldState, action) : oldState;
 };
-
 
 export default reducer;

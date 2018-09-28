@@ -7,7 +7,6 @@ let fetchUsers = (Component) =>
             fetch(API_URL + '/users')
             .then(res => res.json())
             .then(result => {
-                console.log(result.data);
                 this.props.dispatch({
                     type: 'GET_USERS',
                     result: result.data

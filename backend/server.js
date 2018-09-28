@@ -85,11 +85,22 @@ let getQuizzesCreated = (req, res) => {
         res.send({ error: err });
     })
 };
+
+let addNewQuiz = (req, res) => {
+    dbq.addNewQuiz(req.body)
+    .then(() => {
+        req.body.questions.forEach(question => {
+            dbq.addNewQuestion(question, req.body.id)
+            .then(() => res.end())
+        })
+    })
+};
       
 ex.post('/checktoken', validateToken);
 ex.post('/login', createToken);
 ex.post('/signup', newUser);
 ex.get('/users', getUsers);
 ex.get('/users/:id/quizzes/created', getQuizzesCreated);
+ex.post('/quizzes', addNewQuiz);
 
 ex.listen(5000);

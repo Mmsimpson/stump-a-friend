@@ -5,6 +5,7 @@ let initialState = {
     currentUser: {id: 1, userName: 'testUser'},
     users: [],
     newQuiz: {
+        id: '',
         name: '',
         questions: [],
         recipient: ''
