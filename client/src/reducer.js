@@ -36,6 +36,10 @@ let loadQuizzesCreated = (oldState, action) => {
 
 let clearNewQuizData = (oldState, action) => ({...oldState, newQuiz: action.newQuiz});
 
+let updateCurrentUser = (oldState, action) => {
+    let newUser = {...oldState.currentUser, id: action.user.id, userName: action.user.username};
+    return {...oldState, currentUser: newUser};
+};
 
 let reducers = {
     'UPDATE_QUIZ_NAME': updateNewQuizName,
@@ -44,7 +48,8 @@ let reducers = {
     'GET_USERS': getUsers,
     'UPDATE_QUIZ_RECIPIENT': updateQuizRecipient,
     'LOAD_QUIZZES_CREATED': loadQuizzesCreated,
-    'CLEAR_NEW_QUIZ_DATA': clearNewQuizData
+    'CLEAR_NEW_QUIZ_DATA': clearNewQuizData,
+    'UPDATE_CURRENT_USER': updateCurrentUser
 };
 
 let reducer = (oldState, action) => {

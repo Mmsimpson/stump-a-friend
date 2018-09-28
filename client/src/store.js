@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import reducer from './reducer';
 
 let initialState = {
-    currentUser: {id: 1, userName: 'testUser'},
+    currentUser: {id: 1, userName: 'testuser'},
     users: [],
     newQuiz: {
         id: '',

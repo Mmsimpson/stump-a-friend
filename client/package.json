@@ -18,5 +18,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://clinturbin.github.io/stump-a-friend-build/"
+  "homepage": "https://clinturbin.github.io/stump-a-friend/"
 }
