@@ -86,6 +86,16 @@ let getQuizzesCreated = (req, res) => {
     })
 };
 
+let getRecievedQuizzes = (req, res) => {
+    console.log(req.params.id)
+    dbq.getRecievedQuizzes(req.params.id)
+    .then(data => {
+        res.send({data});
+    }).catch(err => {
+        res.send({error: err});
+    })
+}
+
 let addNewQuiz = (req, res) => {
     dbq.addNewQuiz(req.body)
     .then(() => {
@@ -101,6 +111,7 @@ ex.post('/login', createToken);
 ex.post('/signup', newUser);
 ex.get('/users', getUsers);
 ex.get('/users/:id/quizzes/created', getQuizzesCreated);
+ex.get('/users/:id/quizzes/recieved', getRecievedQuizzes);
 ex.post('/quizzes', addNewQuiz);
 
 ex.listen(5000);
