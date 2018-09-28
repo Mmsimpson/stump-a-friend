@@ -40,10 +40,14 @@ class LoginScreen extends React.Component {
                 
             })
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 myStorage.setItem('webtoken', data.token);
                 this.props.history.push(`/user/${data.user.id}`);
-                console.log(this.state);
+                this.props.dispatch({
+                    type: 'UPDATE_CURRENT_USER',
+                    user: data.user
+                });
+                // console.log(this.state);
             })
 
         }
