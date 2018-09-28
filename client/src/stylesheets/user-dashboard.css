@@ -1,5 +1,17 @@
+.user-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .dashboard-link {
     width: 8em;
     height: 8em;
-    border: 1px solid black;
+    justify-self: center;
+}
+
+.dashboard-link img{
+    height: 100px;
+    width: 130px;
 }
